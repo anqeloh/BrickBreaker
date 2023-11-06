@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b74voul2ykd2o"]
+
+[ext_resource type="PackedScene" uid="uid://ckh6rj81mngqb" path="res://Scenes/paddle.tscn" id="1_e4icp"]
+
+[node name="main" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Paddle" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_e4icp")]
+position = Vector2(0, 283)
+camera = NodePath("../Camera2D")
