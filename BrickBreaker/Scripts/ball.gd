@@ -19,7 +19,6 @@ var last_collider_id
 
 
 
-
 func _ready():
 	ui.set_lifes(lifes)
 	start_position = position
