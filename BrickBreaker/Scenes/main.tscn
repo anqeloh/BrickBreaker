@@ -9,14 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://cr403i5e0re0l" path="res://Scenes/ui.tscn" id="5_nvmto"]
 [ext_resource type="Script" path="res://Scripts/brick_spawner.gd" id="6_sis5q"]
 [ext_resource type="PackedScene" uid="uid://cljq5wverfq2f" path="res://Scenes/brick.tscn" id="7_83vgl"]
-[ext_resource type="VideoStream" path="res://Assets/NewJeans-_뉴진스_-_New-Jeans_-MV-_Only-PowerpuffGirls-Ver_-_360p_.ogv" id="10_gxdep"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_p3lat"]
+file = "res://Assets/NewJeans-_뉴진스_-_New-Jeans_-MV-_Only-PowerpuffGirls-Ver_-_360p_.ogv"
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8dlm7"]
 particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
 initial_velocity_min = 250.0
 initial_velocity_max = 250.0
 angular_velocity_min = -275.06
-gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
 scale_min = 0.0
 scale_max = 0.02
 
@@ -24,11 +28,11 @@ scale_max = 0.02
 particle_flag_disable_z = true
 direction = Vector3(0, -1, 0)
 spread = 180.0
+gravity = Vector3(0, 0, 0)
 initial_velocity_min = 200.0
 initial_velocity_max = 250.0
 orbit_velocity_min = 0.1
 orbit_velocity_max = 0.3
-gravity = Vector3(0, 0, 0)
 scale_min = 0.01
 scale_max = 0.01
 
@@ -45,11 +49,10 @@ offset_left = -0.567993
 offset_top = -0.0799866
 offset_right = -576.456
 offset_bottom = -298.312
-stream = ExtResource("10_gxdep")
+stream = SubResource("VideoStreamTheora_p3lat")
 volume_db = -80.0
 autoplay = true
 expand = true
-loop = true
 
 [node name="UI" parent="." instance=ExtResource("5_nvmto")]
 

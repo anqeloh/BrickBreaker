@@ -16,7 +16,7 @@ func set_lifes(lifes: int):
 func game_over():
 	game_lost_container.show()
 	game_over_sound.play()
-	background_music.stop()
+	$BackgroundMusic.stop()
 	
 func _on_game_lost_button_pressed():
 	get_tree().reload_current_scene()
@@ -24,11 +24,10 @@ func _on_game_lost_button_pressed():
 func on_level_won():
 	level_won_container.show()
 	game_won_sound.play()
-	background_music.stop()
 
 func _on_level_won_button_pressed():
 	LevelDefinitions.current_level = 2
 	get_tree().reload_current_scene()
 
 func new_game():
-	background_music.play()
+	$BackgroundMusic.play()
