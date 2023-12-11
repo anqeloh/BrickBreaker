@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b60fjsfepibic"]
+[gd_scene load_steps=6 format=3 uid="uid://b60fjsfepibic"]
 
 [ext_resource type="Texture2D" uid="uid://c8l7ke1ygg27h" path="res://Assets/Ball.png" id="1_b2w5d"]
 [ext_resource type="Script" path="res://Scripts/ball.gd" id="1_djxps"]
+[ext_resource type="AudioStream" uid="uid://bhsm1epqbvh53" path="res://Assets/popit.wav" id="3_7x11a"]
+[ext_resource type="AudioStream" uid="uid://dn8ihv0sd1eso" path="res://Assets/411443__abbasgamez__powerup2.wav" id="4_kd6vk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_07xao"]
 radius = 32.0
@@ -16,3 +18,9 @@ texture = ExtResource("1_b2w5d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_07xao")
+
+[node name="PopSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7x11a")
+
+[node name="PaddleHitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_kd6vk")

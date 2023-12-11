@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr403i5e0re0l"]
+[gd_scene load_steps=9 format=3 uid="uid://cr403i5e0re0l"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_kiua8"]
 [ext_resource type="FontFile" uid="uid://b4pqfbvte11k6" path="res://Assets/VT323-Regular.ttf" id="2_ux8if"]
+[ext_resource type="AudioStream" uid="uid://cqbks6yonxsic" path="res://Assets/382310__myfox14__game-over-arcade.wav" id="3_4e7b3"]
+[ext_resource type="AudioStream" uid="uid://c1o5loksle78f" path="res://Assets/668436__david819__win.mp3" id="4_cdtt8"]
+[ext_resource type="AudioStream" uid="uid://bhsm1epqbvh53" path="res://Assets/popit.wav" id="5_3d8jw"]
+[ext_resource type="AudioStream" uid="uid://cqic3nhivnylp" path="res://Assets/NewJeans - New Jeans ｜ Instrumental.wav" id="6_564fs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8m0x"]
 bg_color = Color(1, 0.345098, 0.290196, 1)
@@ -97,6 +101,19 @@ horizontal_alignment = 1
 [node name="LevelWonButton" type="Button" parent="LevelWonContainer/Panel/VBoxContainer"]
 layout_mode = 2
 text = "NEXT LEVEL"
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4e7b3")
+
+[node name="GameWonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cdtt8")
+
+[node name="NextLevelButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3d8jw")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_564fs")
+autoplay = true
 
 [connection signal="pressed" from="GameLostContainer/Panel/VBoxContainer/GameLostButton" to="." method="_on_game_lost_button_pressed"]
 [connection signal="pressed" from="LevelWonContainer/Panel/VBoxContainer/LevelWonButton" to="." method="_on_level_won_button_pressed"]

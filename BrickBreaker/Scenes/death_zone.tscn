@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://86qml76r13du"]
+[gd_scene load_steps=4 format=3 uid="uid://86qml76r13du"]
 
 [ext_resource type="Script" path="res://Scripts/death_zone.gd" id="1_77885"]
+[ext_resource type="AudioStream" uid="uid://cvxxwoeeuddap" path="res://Assets/459150__matrixxx__retro-underwater-explosion.wav" id="2_68leq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyy4n"]
 size = Vector2(5212, 51)
@@ -11,5 +12,8 @@ script = ExtResource("1_77885")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-637, 15.5)
 shape = SubResource("RectangleShape2D_lyy4n")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_68leq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

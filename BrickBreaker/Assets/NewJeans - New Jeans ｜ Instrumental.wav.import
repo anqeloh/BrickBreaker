@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqic3nhivnylp"
+path="res://.godot/imported/NewJeans - New Jeans ｜ Instrumental.wav-ecad35eacdf900ca9b5c2ab1f89550eb.sample"
+
+[deps]
+
+source_file="res://Assets/NewJeans - New Jeans ｜ Instrumental.wav"
+dest_files=["res://.godot/imported/NewJeans - New Jeans ｜ Instrumental.wav-ecad35eacdf900ca9b5c2ab1f89550eb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
