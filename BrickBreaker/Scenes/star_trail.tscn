@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://wfy05gj803by"]
+
+[ext_resource type="Texture2D" uid="uid://tpjokmmgc75h" path="res://Assets/pngwing.com (1).png" id="1_w7e30"]
+
+[sub_resource type="Gradient" id="Gradient_ufsll"]
+colors = PackedColorArray(0.541721, 0.690846, 1, 1, 0.989414, 0.931181, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7sbkm"]
+gradient = SubResource("Gradient_ufsll")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6q8jv"]
+particle_flag_disable_z = true
+initial_velocity_min = 250.0
+initial_velocity_max = 250.0
+angular_velocity_min = -275.06
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.02
+color_ramp = SubResource("GradientTexture1D_7sbkm")
+
+[node name="StarTrail" type="GPUParticles2D"]
+scale = Vector2(1e-05, 1e-05)
+process_material = SubResource("ParticleProcessMaterial_6q8jv")
+texture = ExtResource("1_w7e30")

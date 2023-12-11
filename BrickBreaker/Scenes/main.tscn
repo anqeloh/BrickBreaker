@@ -1,14 +1,55 @@
-[gd_scene load_steps=8 format=3 uid="uid://b74voul2ykd2o"]
+[gd_scene load_steps=13 format=3 uid="uid://b74voul2ykd2o"]
 
 [ext_resource type="PackedScene" uid="uid://ckh6rj81mngqb" path="res://Scenes/paddle.tscn" id="1_e4icp"]
 [ext_resource type="PackedScene" uid="uid://b60fjsfepibic" path="res://Scenes/ball.tscn" id="1_inmpj"]
 [ext_resource type="PackedScene" uid="uid://c7svyum44wlbk" path="res://Scenes/wall.tscn" id="3_crp1v"]
 [ext_resource type="PackedScene" uid="uid://86qml76r13du" path="res://Scenes/death_zone.tscn" id="4_2rp83"]
+[ext_resource type="PackedScene" uid="uid://wfy05gj803by" path="res://Scenes/star_trail.tscn" id="4_mishx"]
+[ext_resource type="PackedScene" uid="uid://cuaf2q1sevnc" path="res://Scenes/star_explosion.tscn" id="5_ic0nm"]
 [ext_resource type="PackedScene" uid="uid://cr403i5e0re0l" path="res://Scenes/ui.tscn" id="5_nvmto"]
 [ext_resource type="Script" path="res://Scripts/brick_spawner.gd" id="6_sis5q"]
 [ext_resource type="PackedScene" uid="uid://cljq5wverfq2f" path="res://Scenes/brick.tscn" id="7_83vgl"]
+[ext_resource type="VideoStream" path="res://Assets/NewJeans-_뉴진스_-_New-Jeans_-MV-_Only-PowerpuffGirls-Ver_-_360p_.ogv" id="10_gxdep"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8dlm7"]
+particle_flag_disable_z = true
+initial_velocity_min = 250.0
+initial_velocity_max = 250.0
+angular_velocity_min = -275.06
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.02
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mmq3v"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 250.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.3
+gravity = Vector3(0, 0, 0)
+scale_min = 0.01
+scale_max = 0.01
 
 [node name="main" type="Node"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 1)
+anchors_preset = -1
+anchor_left = -0.516
+anchor_top = -0.54
+anchor_right = 1.003
+anchor_bottom = 1.019
+offset_left = -0.567993
+offset_top = -0.0799866
+offset_right = -576.456
+offset_bottom = -298.312
+stream = ExtResource("10_gxdep")
+volume_db = -80.0
+autoplay = true
+expand = true
+loop = true
 
 [node name="UI" parent="." instance=ExtResource("5_nvmto")]
 
@@ -19,11 +60,23 @@ position = Vector2(0, 283)
 collision_layer = 2
 camera = NodePath("../Camera2D")
 
+[node name="StarTrail2" parent="Paddle" instance=ExtResource("4_mishx")]
+position = Vector2(-1, 0)
+process_material = SubResource("ParticleProcessMaterial_8dlm7")
+
 [node name="Ball" parent="." node_paths=PackedStringArray("death_zone", "ui") instance=ExtResource("1_inmpj")]
 position = Vector2(0, 152)
 collision_mask = 14
 death_zone = NodePath("../DeathZone")
 ui = NodePath("../UI")
+
+[node name="StarTrail" parent="Ball" instance=ExtResource("4_mishx")]
+
+[node name="StarExplosion" parent="Ball" instance=ExtResource("5_ic0nm")]
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_mmq3v")
+one_shot = true
 
 [node name="Walls" type="Node" parent="."]
 

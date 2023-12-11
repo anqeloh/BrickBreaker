@@ -20,6 +20,8 @@ var last_collider_id
 @onready var pop_sound = $PopSound
 @onready var paddle_hit_sound = $PaddleHitSound
 
+@onready var star_explosion = $StarExplosion
+
 func _ready():
 	ui.set_lifes(lifes)
 	start_position = position
@@ -33,16 +35,20 @@ func _physics_process(delta):
 	var collider = collision.get_collider()
 	if collider is Brick:
 		collider.decrease_level()
+		star_explosion.emitting = true
 	
 	if (collider is Paddle):
 		ball_collision(collider)
+		star_explosion.emitting = true
 		paddle_hit_sound.play()
 		
 	elif (collider is Brick):
 		ball_collision(collider)
+		star_explosion.emitting = true
 		pop_sound.play()
 	else:
 		velocity = velocity.bounce(collision.get_normal())
+		star_explosion.emitting = true
 		paddle_hit_sound.play()
 	
 	
